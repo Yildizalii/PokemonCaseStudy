@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol AnyInteractor {
+protocol PokemonListInteractor {
   
-  var presenter: AnyPresenter? {get set}
+  var presenter: PokemonListPresenter? {get set}
   
   func dowlandPokemontList()
 }
 
-class PokemonListInteractor: AnyInteractor {
+class PokemonListInteractorClass: PokemonListInteractor {
   
-  var presenter: AnyPresenter?
+  var presenter: PokemonListPresenter?
   
   func dowlandPokemontList() {
     guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon")else {
@@ -32,9 +32,9 @@ class PokemonListInteractor: AnyInteractor {
         self?.presenter?.interactorDidDowlandPokemon(result: .success(pokemon))
       } catch {
         self?.presenter?.interactorDidDowlandPokemon(result: .failure(NetworkError.ParsingFailed))
-
+        
       }
-    
+      
     }
     task.resume()
   }

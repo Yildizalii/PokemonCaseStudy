@@ -7,16 +7,15 @@
 
 import Foundation
 import UIKit
-protocol AnyView {
+protocol PokemonListView {
   
-  var presenter: AnyPresenter? {get set}
-
+  var presenter: PokemonListPresenter? {get set}
+  
   func update(with pokemon: PokemonResponse )
   func uptade(with error: String)
 }
 
-
-class PokemonListController: UIViewController, AnyView, UITableViewDelegate, UITableViewDataSource{
+class PokemonListController: UIViewController, PokemonListView, UITableViewDelegate, UITableViewDataSource{
   
   var pokemonList: [Pokemon] = []
   
@@ -40,7 +39,7 @@ class PokemonListController: UIViewController, AnyView, UITableViewDelegate, UIT
   
   override func viewDidLoad() {
     view.backgroundColor = .yellow
-     super.viewDidLoad()
+    super.viewDidLoad()
     view.addSubview(tableView)
     view.addSubview(messageLabel)
     
@@ -89,7 +88,7 @@ class PokemonListController: UIViewController, AnyView, UITableViewDelegate, UIT
     
   }
   
-  var presenter: AnyPresenter?
+  var presenter: PokemonListPresenter?
   
 }
 
