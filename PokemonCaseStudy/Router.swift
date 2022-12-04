@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-typealias EntryPoint = AnyView & UIViewController
+typealias EntryPoint = PokemonListView & UIViewController
 
 protocol AnyRouter {
   var entry: EntryPoint? {get }
@@ -17,16 +17,14 @@ protocol AnyRouter {
 
 class PokemonListRouter: AnyRouter {
  
-  
   var entry: EntryPoint?
   
- 
   static func startExcution() -> AnyRouter {
     let router = PokemonListRouter()
      
-    var view: AnyView = PokemonListController()
-    var prenter: AnyPresenter = PokemonListPresenter()
-    var interactor: AnyInteractor = PokemonListInteractor()
+    var view: PokemonListView = PokemonListController()
+    var prenter: PokemonListPresenter = PokemonListPresenterClass()
+    var interactor: PokemonListInteractor = PokemonListInteractorClass()
     
     view.presenter = prenter
     prenter.view = view
@@ -37,8 +35,5 @@ class PokemonListRouter: AnyRouter {
     
     return router
   }
-  
-  
-  
 }
 

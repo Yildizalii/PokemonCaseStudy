@@ -17,13 +17,3 @@ struct PokemonResponse: Decodable {
   var results: [Pokemon]
 }
 
-struct Info: Decodable {
-  var ability: Ability
-  var is_hidden: Bool
-  var slot: Int
-}
-
-struct Ability : Decodable {
-  var name: String
-  var url: URL
-}
