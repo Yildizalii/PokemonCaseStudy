@@ -11,11 +11,11 @@
 		416641B32938F08600832286 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641B22938F08600832286 /* SceneDelegate.swift */; };
 		416641BA2938F08800832286 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 416641B92938F08800832286 /* Assets.xcassets */; };
 		416641BD2938F08800832286 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416641BB2938F08800832286 /* LaunchScreen.storyboard */; };
-		416641C5293A201D00832286 /* PokemonListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641C4293A201C00832286 /* PokemonListController.swift */; };
+		416641C5293A201D00832286 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641C4293A201C00832286 /* PokemonListViewController.swift */; };
 		416641C7293A203D00832286 /* PokemonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641C6293A203D00832286 /* PokemonListInteractor.swift */; };
 		416641C9293A205A00832286 /* PokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641C8293A205A00832286 /* PokemonListPresenter.swift */; };
-		416641CB293A207A00832286 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641CA293A207A00832286 /* Entity.swift */; };
-		416641CD293A208A00832286 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641CC293A208A00832286 /* Router.swift */; };
+		416641CB293A207A00832286 /* PokemonListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641CA293A207A00832286 /* PokemonListEntity.swift */; };
+		416641CD293A208A00832286 /* PokemonListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416641CC293A208A00832286 /* PokemonListRouter.swift */; };
 		41664204293D155B00832286 /* PokemonDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41664203293D155B00832286 /* PokemonDetailInteractor.swift */; };
 		41664206293D157800832286 /* PokemonDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41664205293D157800832286 /* PokemonDetailPresenter.swift */; };
 		41664208293D158F00832286 /* PokemonDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41664207293D158F00832286 /* PokemonDetailEntity.swift */; };
@@ -31,11 +31,11 @@
 		416641B92938F08800832286 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		416641BC2938F08800832286 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		416641BE2938F08800832286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		416641C4293A201C00832286 /* PokemonListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListController.swift; sourceTree = "<group>"; };
+		416641C4293A201C00832286 /* PokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewController.swift; sourceTree = "<group>"; };
 		416641C6293A203D00832286 /* PokemonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListInteractor.swift; sourceTree = "<group>"; };
 		416641C8293A205A00832286 /* PokemonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListPresenter.swift; sourceTree = "<group>"; };
-		416641CA293A207A00832286 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
-		416641CC293A208A00832286 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		416641CA293A207A00832286 /* PokemonListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListEntity.swift; sourceTree = "<group>"; };
+		416641CC293A208A00832286 /* PokemonListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListRouter.swift; sourceTree = "<group>"; };
 		41664203293D155B00832286 /* PokemonDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailInteractor.swift; sourceTree = "<group>"; };
 		41664205293D157800832286 /* PokemonDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailPresenter.swift; sourceTree = "<group>"; };
 		41664207293D158F00832286 /* PokemonDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailEntity.swift; sourceTree = "<group>"; };
@@ -88,11 +88,11 @@
 		416641EF293CF6F200832286 /* PokemonList */ = {
 			isa = PBXGroup;
 			children = (
-				416641C4293A201C00832286 /* PokemonListController.swift */,
+				416641C4293A201C00832286 /* PokemonListViewController.swift */,
 				416641C6293A203D00832286 /* PokemonListInteractor.swift */,
 				416641C8293A205A00832286 /* PokemonListPresenter.swift */,
-				416641CA293A207A00832286 /* Entity.swift */,
-				416641CC293A208A00832286 /* Router.swift */,
+				416641CA293A207A00832286 /* PokemonListEntity.swift */,
+				416641CC293A208A00832286 /* PokemonListRouter.swift */,
 			);
 			path = PokemonList;
 			sourceTree = "<group>";
@@ -183,10 +183,10 @@
 			files = (
 				4166420F293D18B800832286 /* PokemonDetailViewController.swift in Sources */,
 				41664206293D157800832286 /* PokemonDetailPresenter.swift in Sources */,
-				416641CD293A208A00832286 /* Router.swift in Sources */,
+				416641CD293A208A00832286 /* PokemonListRouter.swift in Sources */,
 				416641C9293A205A00832286 /* PokemonListPresenter.swift in Sources */,
-				416641C5293A201D00832286 /* PokemonListController.swift in Sources */,
-				416641CB293A207A00832286 /* Entity.swift in Sources */,
+				416641C5293A201D00832286 /* PokemonListViewController.swift in Sources */,
+				416641CB293A207A00832286 /* PokemonListEntity.swift in Sources */,
 				41664204293D155B00832286 /* PokemonDetailInteractor.swift in Sources */,
 				41664208293D158F00832286 /* PokemonDetailEntity.swift in Sources */,
 				416641C7293A203D00832286 /* PokemonListInteractor.swift in Sources */,

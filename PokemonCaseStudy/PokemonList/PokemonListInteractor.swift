@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol PokemonListInteractor {
+protocol PokemonListInteractorProtocol {
   
-  var presenter: PokemonListPresenter? {get set}
+  var presenter: PokemonListPresenterProtocol? {get set}
   
   func dowlandPokemontList()
 }
 
-class PokemonListInteractorClass: PokemonListInteractor {
+class PokemonListInteractor: PokemonListInteractorProtocol {
   
-  weak var presenter: PokemonListPresenter?
+  weak var presenter: PokemonListPresenterProtocol?
   
   func dowlandPokemontList() {
     guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon")else {

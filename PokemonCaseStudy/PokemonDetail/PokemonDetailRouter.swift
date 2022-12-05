@@ -9,24 +9,24 @@ import Foundation
 import UIKit
 
 
-protocol PokemonDetailRouter {
+protocol PokemonDetailRouterProtocol {
   
   static func startExcution() -> UIViewController
   
 }
 
-class PokemonDetailRouterClass: PokemonDetailRouter {
+class PokemonDetailRouter: PokemonDetailRouterProtocol {
   
   static func startExcution() -> UIViewController {
-    let router = PokemonDetailRouterClass()
+    let router = PokemonDetailRouter()
     
     let storyboard = UIStoryboard(name: "Detail", bundle: nil)
     let customViewController = storyboard.instantiateViewController(withIdentifier: "PokemonDetail") as! PokemonDetailViewController
     
     
-    var view: PokemonDetailView = customViewController
-    var presenter: PokemonDetailPresenter = PokemonDetailPresenterClass()
-    var interactor: PokemonDetailInteractor = PokemonDetailInteractorClass()
+    var view: PokemonDetailViewProtocol = customViewController
+    var presenter: PokemonDetailPresenterProtocol = PokemonDetailPresenter()
+    var interactor: PokemonDetailInteractorProtocol = PokemonDetailInteractor()
     
     view.presenter = presenter
     presenter.view = view

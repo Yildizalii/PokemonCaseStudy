@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol PokemonDetailInteractor {
+protocol PokemonDetailInteractorProtocol {
   
-  var presenter: PokemonDetailPresenter? {get set}
+  var presenter: PokemonDetailPresenterProtocol? {get set}
   
   func dowloandPokemonDetail()
 }
-class PokemonDetailInteractorClass: PokemonDetailInteractor {
+class PokemonDetailInteractor: PokemonDetailInteractorProtocol {
   
-  var presenter: PokemonDetailPresenter?
+  var presenter: PokemonDetailPresenterProtocol?
   
   func dowloandPokemonDetail() {
     guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/ditto") else {

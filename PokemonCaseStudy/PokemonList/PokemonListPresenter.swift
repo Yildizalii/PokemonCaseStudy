@@ -12,24 +12,24 @@ enum NetworkError: Error {
   case ParsingFailed
 }
 
-protocol PokemonListPresenter: AnyObject {
-  var router: PokemonListRouter? {get set}
-  var interactor: PokemonListInteractor? {get set}
-  var view: PokemonListView? {get set}
+protocol PokemonListPresenterProtocol: AnyObject {
+  var router: PokemonListRouterProtocol? {get set}
+  var interactor: PokemonListInteractorProtocol? {get set}
+  var view: PokemonListViewProtocol? {get set}
   
   func interactorDidDownloadPokemon(result: Result<PokemonResponse,Error>)
   
 }
 
-class PokemonListPresenterClass: PokemonListPresenter {
+class PokemonListPresenter: PokemonListPresenterProtocol {
   
-  var interactor: PokemonListInteractor? {
+  var interactor: PokemonListInteractorProtocol? {
     didSet {
       interactor?.dowlandPokemontList()
     }
   }
-  var router: PokemonListRouter?
-  weak var view: PokemonListView?
+  var router: PokemonListRouterProtocol?
+  weak var view: PokemonListViewProtocol?
   
   func interactorDidDownloadPokemon(result: Result<PokemonResponse, Error>) {
     switch result {
