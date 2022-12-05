@@ -16,7 +16,7 @@ protocol PokemonListInteractor {
 
 class PokemonListInteractorClass: PokemonListInteractor {
   
-  var presenter: PokemonListPresenter?
+  weak var presenter: PokemonListPresenter?
   
   func dowlandPokemontList() {
     guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon")else {
@@ -24,17 +24,16 @@ class PokemonListInteractorClass: PokemonListInteractor {
     }
     let task = URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
       guard let data = data, error == nil else {
-        self?.presenter?.interactorDidDowlandPokemon(result: .failure(NetworkError.NetworkFailed))
+        self?.presenter?.interactorDidDownloadPokemon(result: .failure(NetworkError.NetworkFailed))
         return
       }
       do {
         let pokemon = try JSONDecoder().decode(PokemonResponse.self, from: data)
-        self?.presenter?.interactorDidDowlandPokemon(result: .success(pokemon))
+        self?.presenter?.interactorDidDownloadPokemon(result: .success(pokemon))
       } catch {
-        self?.presenter?.interactorDidDowlandPokemon(result: .failure(NetworkError.ParsingFailed))
+        self?.presenter?.interactorDidDownloadPokemon(result: .failure(NetworkError.ParsingFailed))
         
       }
-      
     }
     task.resume()
   }
