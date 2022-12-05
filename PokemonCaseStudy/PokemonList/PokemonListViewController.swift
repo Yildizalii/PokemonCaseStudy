@@ -7,15 +7,15 @@
 
 import Foundation
 import UIKit
-protocol PokemonListView: AnyObject {
+protocol PokemonListViewProtocol: AnyObject {
   
-  var presenter: PokemonListPresenter? {get set}
+  var presenter: PokemonListPresenterProtocol? {get set}
   
   func update(with pokemon: PokemonResponse )
   func uptade(with error: String)
 }
 
-class PokemonListController: UIViewController, PokemonListView, UITableViewDelegate, UITableViewDataSource{
+class PokemonListViewController: UIViewController, PokemonListViewProtocol, UITableViewDelegate, UITableViewDataSource{
   
   var pokemonList: [Pokemon] = []
   
@@ -38,14 +38,12 @@ class PokemonListController: UIViewController, PokemonListView, UITableViewDeleg
   }()
   
   override func viewDidLoad() {
-    view.backgroundColor = .yellow
     super.viewDidLoad()
     view.addSubview(tableView)
     view.addSubview(messageLabel)
     
     tableView.delegate = self
     tableView.dataSource = self
-    //tableView.allowsSelection = true
   }
   
   override func viewDidLayoutSubviews() {
@@ -64,14 +62,13 @@ class PokemonListController: UIViewController, PokemonListView, UITableViewDeleg
     var content = cell.defaultContentConfiguration()
     content.text = pokemonList[indexPath.row].name
     cell.contentConfiguration = content
-    cell.backgroundColor = .yellow
     return cell
     
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let detailVC = PokemonDetailRouterClass()
-    navigationController?.pushViewController(PokemonDetailRouterClass.startExcution(), animated: true)
+    let detailVC = PokemonDetailRouter()
+    navigationController?.pushViewController(PokemonDetailRouter.startExcution(), animated: true)
   }
   
   func update(with pokemon: PokemonResponse) {
@@ -94,7 +91,7 @@ class PokemonListController: UIViewController, PokemonListView, UITableViewDeleg
     
   }
   
-  var presenter: PokemonListPresenter?
+  var presenter: PokemonListPresenterProtocol?
   
 }
 

@@ -13,22 +13,22 @@ enum DetailNetworkError: Error {
   case ParsingFailed
 }
 
-protocol PokemonDetailPresenter {
+protocol PokemonDetailPresenterProtocol {
   
-  var router: PokemonDetailRouter? {get set}
-  var interactor: PokemonDetailInteractor? {get set}
-  var view: PokemonDetailView? {get set}
+  var router: PokemonDetailRouterProtocol? {get set}
+  var interactor: PokemonDetailInteractorProtocol? {get set}
+  var view: PokemonDetailViewProtocol? {get set}
   
   func interactorDidDownloadPokemonDetail(result: Result< PokemonDetail, Error >)
 }
 
-class PokemonDetailPresenterClass: PokemonDetailPresenter {
+class PokemonDetailPresenter: PokemonDetailPresenterProtocol {
   
-  var router: PokemonDetailRouter?
+  var router: PokemonDetailRouterProtocol?
   
-  var interactor: PokemonDetailInteractor?
+  var interactor: PokemonDetailInteractorProtocol?
   
-  var view: PokemonDetailView?
+  var view: PokemonDetailViewProtocol?
   
   
   func interactorDidDownloadPokemonDetail(result: Result<PokemonDetail, Error>) {

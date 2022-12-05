@@ -8,17 +8,17 @@
 import UIKit
 
 
-protocol PokemonDetailView {
+protocol PokemonDetailViewProtocol {
   
-  var presenter: PokemonDetailPresenter? {get set}
+  var presenter: PokemonDetailPresenterProtocol? {get set}
   
   func update(with pokemonDetail: [PokemonDetail])
   func update(with error: String)
 }
 
-class PokemonDetailViewController: UIViewController, PokemonDetailView {
+class PokemonDetailViewController: UIViewController, PokemonDetailViewProtocol {
   
-  var presenter: PokemonDetailPresenter?
+  var presenter: PokemonDetailPresenterProtocol?
   var pokemonDetail: [PokemonDetail] = []
   
   override func viewDidLoad() {
