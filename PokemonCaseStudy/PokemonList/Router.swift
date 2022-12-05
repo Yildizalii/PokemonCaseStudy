@@ -10,18 +10,18 @@ import UIKit
 
 typealias EntryPoint = PokemonListView & UIViewController
 
-protocol AnyRouter {
+protocol PokemonListRouter {
   var entry: EntryPoint? {get }
-  static func startExcution() -> AnyRouter
+  static func startExcution() -> PokemonListRouter
 }
 
-class PokemonListRouter: AnyRouter {
- 
+class PokemonListRouterClass: PokemonListRouter {
+  
   var entry: EntryPoint?
   
-  static func startExcution() -> AnyRouter {
-    let router = PokemonListRouter()
-     
+  static func startExcution() -> PokemonListRouter {
+    let router = PokemonListRouterClass()
+    
     var view: PokemonListView = PokemonListController()
     var prenter: PokemonListPresenter = PokemonListPresenterClass()
     var interactor: PokemonListInteractor = PokemonListInteractorClass()
@@ -31,7 +31,7 @@ class PokemonListRouter: AnyRouter {
     prenter.router = router
     prenter.interactor = interactor
     interactor.presenter = prenter
-    router.entry = view as? EntryPoint 
+    router.entry = view as? EntryPoint
     
     return router
   }

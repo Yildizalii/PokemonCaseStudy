@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-protocol PokemonListView {
+protocol PokemonListView: AnyObject {
   
   var presenter: PokemonListPresenter? {get set}
   
@@ -45,6 +45,7 @@ class PokemonListController: UIViewController, PokemonListView, UITableViewDeleg
     
     tableView.delegate = self
     tableView.dataSource = self
+    //tableView.allowsSelection = true
   }
   
   override func viewDidLayoutSubviews() {
@@ -66,6 +67,11 @@ class PokemonListController: UIViewController, PokemonListView, UITableViewDeleg
     cell.backgroundColor = .yellow
     return cell
     
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let detailVC = PokemonDetailRouterClass()
+    navigationController?.pushViewController(PokemonDetailRouterClass.startExcution(), animated: true)
   }
   
   func update(with pokemon: PokemonResponse) {

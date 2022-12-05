@@ -12,12 +12,13 @@ enum NetworkError: Error {
   case ParsingFailed
 }
 
-protocol PokemonListPresenter {
-  var router: AnyRouter? {get set}
+protocol PokemonListPresenter: AnyObject {
+  var router: PokemonListRouter? {get set}
   var interactor: PokemonListInteractor? {get set}
   var view: PokemonListView? {get set}
   
-  func interactorDidDowlandPokemon(result: Result<PokemonResponse,Error>)
+  func interactorDidDownloadPokemon(result: Result<PokemonResponse,Error>)
+  
 }
 
 class PokemonListPresenterClass: PokemonListPresenter {
@@ -27,19 +28,15 @@ class PokemonListPresenterClass: PokemonListPresenter {
       interactor?.dowlandPokemontList()
     }
   }
-  var router: AnyRouter?
-  var view: PokemonListView?
+  var router: PokemonListRouter?
+  weak var view: PokemonListView?
   
-  func interactorDidDowlandPokemon(result: Result<PokemonResponse, Error>) {
+  func interactorDidDownloadPokemon(result: Result<PokemonResponse, Error>) {
     switch result {
     case .success(let pokemon):
-      //view.update
-      
       view?.update(with: pokemon)
-      print("update")
     case .failure(_):
-      //view.uptade.error break
-      print("update ")
+      break
     }
   }
 }
