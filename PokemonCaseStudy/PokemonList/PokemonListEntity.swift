@@ -14,6 +14,7 @@ struct Pokemon: Decodable {
 }
 
 struct PokemonResponse: Decodable {
+  
   var results: [Pokemon]
 }
 

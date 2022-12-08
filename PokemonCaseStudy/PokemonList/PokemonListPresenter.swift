@@ -28,6 +28,7 @@ class PokemonListPresenter: PokemonListPresenterProtocol {
       interactor?.dowlandPokemontList()
     }
   }
+  
   var router: PokemonListRouterProtocol?
   weak var view: PokemonListViewProtocol?
   

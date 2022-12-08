@@ -17,13 +17,13 @@ protocol PokemonListRouterProtocol {
 
 class PokemonListRouter: PokemonListRouterProtocol {
   
-  var entry: EntryPoint?
+    var entry: EntryPoint?
   
-  static func startExcution() -> PokemonListRouterProtocol {
-    let router = PokemonListRouter()
+    static func startExcution() -> PokemonListRouterProtocol {
     
-    var view: PokemonListViewProtocol = PokemonListViewController()
-    var prenter: PokemonListPresenterProtocol = PokemonListPresenter()
+    let router = PokemonListRouter()
+    let view: PokemonListViewProtocol = PokemonListViewController()
+    let prenter: PokemonListPresenterProtocol = PokemonListPresenter()
     var interactor: PokemonListInteractorProtocol = PokemonListInteractor()
     
     view.presenter = prenter

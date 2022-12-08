@@ -32,7 +32,6 @@ class PokemonListInteractor: PokemonListInteractorProtocol {
         self?.presenter?.interactorDidDownloadPokemon(result: .success(pokemon))
       } catch {
         self?.presenter?.interactorDidDownloadPokemon(result: .failure(NetworkError.ParsingFailed))
-        
       }
     }
     task.resume()

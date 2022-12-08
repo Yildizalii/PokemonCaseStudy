@@ -30,7 +30,7 @@ class PokemonListViewController: UIViewController, PokemonListViewProtocol, UITa
   private let messageLabel: UILabel = {
     let label = UILabel()
     label.isHidden = false
-    label.text = "Dowloading..."
+    label.text = "Downloading..."
     label.font = UIFont.systemFont(ofSize: 25)
     label.textColor = .black
     label.textAlignment = .center
@@ -52,7 +52,6 @@ class PokemonListViewController: UIViewController, PokemonListViewProtocol, UITa
     messageLabel.frame = CGRect(x: view.frame.width / 2 - 100  , y: view.frame.height / 2 - 25  , width: 200, height: 50)
   }
   
-  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return pokemonList.count
   }
@@ -67,8 +66,8 @@ class PokemonListViewController: UIViewController, PokemonListViewProtocol, UITa
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let detailVC = PokemonDetailRouter()
-    navigationController?.pushViewController(PokemonDetailRouter.startExcution(), animated: true)
+    let selectedPokemon = pokemonList[indexPath.row].url
+    navigationController?.pushViewController(PokemonDetailRouter.startExcution(pokemonDetailURL: selectedPokemon), animated: true)
   }
   
   func update(with pokemon: PokemonResponse) {
@@ -77,7 +76,6 @@ class PokemonListViewController: UIViewController, PokemonListViewProtocol, UITa
       self.messageLabel.isHidden = true
       self.tableView.reloadData()
       self.tableView.isHidden = false
-      
     }
   }
   
@@ -88,11 +86,8 @@ class PokemonListViewController: UIViewController, PokemonListViewProtocol, UITa
       self.messageLabel.text = error
       self.messageLabel.isHidden = false
     }
-    
   }
-  
   var presenter: PokemonListPresenterProtocol?
-  
 }
 
 

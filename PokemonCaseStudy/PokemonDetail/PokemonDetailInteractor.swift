@@ -10,18 +10,22 @@ import Foundation
 protocol PokemonDetailInteractorProtocol {
   
   var presenter: PokemonDetailPresenterProtocol? {get set}
-  
   func dowloandPokemonDetail()
 }
+
 class PokemonDetailInteractor: PokemonDetailInteractorProtocol {
   
-  var presenter: PokemonDetailPresenterProtocol?
+  var selectedPokemon: URL
+  
+  init(pokemon: URL) {
+    selectedPokemon = pokemon
+  }
+  
+  weak var presenter: PokemonDetailPresenterProtocol?
   
   func dowloandPokemonDetail() {
-    guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/ditto") else {
-      return
-    }
-    let task = URLSession.shared.dataTask(with: url) {[weak self] data, response, error in
+    
+    let task = URLSession.shared.dataTask(with: selectedPokemon) {[weak self] data, response, error in
       guard let data = data, error == nil else {
         self?.presenter?.interactorDidDownloadPokemonDetail(result: .failure(NetworkError.NetworkFailed))
         return

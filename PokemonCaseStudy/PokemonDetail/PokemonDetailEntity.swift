@@ -9,18 +9,24 @@ import Foundation
 
 struct PokemonDetail: Decodable {
   
-  var abilities: [Info]
+  var abilities: [Ability]
+  var name: String
+  var sprites: Image
 }
 
-struct Info: Decodable {
-  var ability: Ability
+struct Ability: Decodable {
+  var ability: AbilityInfo
   var is_hidden: Bool
   var slot: Int
 }
 
-struct Ability: Decodable {
+struct AbilityInfo: Decodable {
   var name: String
   var url: URL
+}
+
+struct Image: Decodable {
+  var front_shiny: URL
 }
 
 
