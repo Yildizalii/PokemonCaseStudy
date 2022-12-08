@@ -22,7 +22,7 @@ class PokemonDetailRouter: PokemonDetailRouterProtocol {
     let storyboard = UIStoryboard(name: "Detail", bundle: nil)
     let customViewController = storyboard.instantiateViewController(withIdentifier: "PokemonDetail") as! PokemonDetailViewController
     
-    var view: PokemonDetailViewProtocol = customViewController
+    let view: PokemonDetailViewProtocol = customViewController
     let presenter: PokemonDetailPresenterProtocol = PokemonDetailPresenter()
     var interactor: PokemonDetailInteractorProtocol = PokemonDetailInteractor(pokemon: pokemonDetailURL)
     

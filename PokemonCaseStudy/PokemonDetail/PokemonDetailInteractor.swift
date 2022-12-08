@@ -39,5 +39,4 @@ class PokemonDetailInteractor: PokemonDetailInteractorProtocol {
     }
     task.resume()
   }
-  
 }

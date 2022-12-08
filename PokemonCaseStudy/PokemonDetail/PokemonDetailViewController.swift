@@ -59,5 +59,4 @@ class PokemonDetailViewController: UIViewController, PokemonDetailViewProtocol, 
     cell.textLabel?.text = pokemonDetailList[indexPath.row].ability.name
     return cell
   }
-
 }
